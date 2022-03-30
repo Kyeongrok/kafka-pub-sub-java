@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping(value = "/api/products")
+@RequestMapping(value = "/api/v1/products")
 public class ProductController {
 
     private HashMap<String, String> hm;
