@@ -17,6 +17,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '2.5.0'
     implementation group: 'org.springframework.kafka', name: 'spring-kafka'
+    implementation 'org.projectlombok:lombok:1.18.22'
 }
 
 tasks.named('test') {
