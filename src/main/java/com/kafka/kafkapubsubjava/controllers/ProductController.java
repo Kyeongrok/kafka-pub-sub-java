@@ -1,6 +1,7 @@
 package com.kafka.kafkapubsubjava.controllers;
 
 import com.kafka.kafkapubsubjava.domains.Product;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -12,8 +13,8 @@ public class ProductController {
     private HashMap<String, String> hm;
 
     @PostMapping(value = "/add")
-    public void add(@RequestBody Product product) {
-
+    public ResponseEntity add(@RequestBody Product product) {
+        return ResponseEntity.ok("add success");
     }
 
     @PutMapping(value = "/update/{id}")

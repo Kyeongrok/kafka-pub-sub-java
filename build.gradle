@@ -13,11 +13,20 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation ('org.springframework.boot:spring-boot-starter-web'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    implementation "org.springframework.boot:spring-boot-starter-jetty"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '2.5.0'
     implementation group: 'org.springframework.kafka', name: 'spring-kafka'
     implementation 'org.projectlombok:lombok:1.18.22'
+
+
+    implementation 'io.springfox:springfox-swagger2:3.0.0'
+    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+
 }
 
 tasks.named('test') {
