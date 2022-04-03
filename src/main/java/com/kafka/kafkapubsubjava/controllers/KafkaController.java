@@ -1,19 +1,20 @@
 package com.kafka.kafkapubsubjava.controllers;
 
-import com.kafka.kafkapubsubjava.services.KafkaProducer;
+import com.kafka.kafkapubsubjava.services.KafkaSpringProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
-
 @RestController
 public class KafkaController {
 
-    @Autowired
-    private KafkaProducer kafkaSampleProducerService;
+    private final KafkaSpringProducer kafkaSampleProducerService;
+
+    public KafkaController(KafkaSpringProducer kafkaSampleProducerService) {
+        this.kafkaSampleProducerService = kafkaSampleProducerService;
+    }
 
     @GetMapping(value = "/hello/{id}")
     public String hello(@PathVariable("id") String id) {

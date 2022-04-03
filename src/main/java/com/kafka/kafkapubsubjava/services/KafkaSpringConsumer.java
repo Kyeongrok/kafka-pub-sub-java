@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
-public class KafkaConsumer {
+public class KafkaSpringConsumer {
 
     private final TelegramSender telegramSender;
 
-    public KafkaConsumer(TelegramSender telegramSender) {
+    public KafkaSpringConsumer(TelegramSender telegramSender) {
         this.telegramSender = telegramSender;
     }
 
     @KafkaListener(topics = "test_log", groupId = "testgroup")
     public void consume(String message) throws IOException {
         System.out.println("receive message : " + message);
-        this.telegramSender.send(message);
+        this.telegramSender.send("receive message:" + message);
     }
 }
