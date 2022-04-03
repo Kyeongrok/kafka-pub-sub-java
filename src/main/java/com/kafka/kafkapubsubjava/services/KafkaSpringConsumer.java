@@ -15,7 +15,7 @@ public class KafkaSpringConsumer {
         this.telegramSender = telegramSender;
     }
 
-    @KafkaListener(topics = "test_log", groupId = "testgroup")
+    @KafkaListener(topics = "test_log", groupId = "") // groupId를 ""로 두면 application.yml의 groupId가 들어갑니다.
     public void consume(String message) throws IOException {
         System.out.println("receive message : " + message);
         this.telegramSender.send("receive message:" + message);
